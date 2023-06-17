@@ -25,17 +25,29 @@ public class CircunferenciaServicios {
         
         return c1;        
     }
-    
+    /**
+     * calculo de area
+     * @param c1
+     * @return 
+     */
     public double area(Circunferencia c1){
         double area = Math.PI * Math.pow(c1.getRadio(), 2);
         return area;
     }
-    
+    /**
+     * calculo de perimetro
+     * @param c1
+     * @return 
+     */
     public double perimetro(Circunferencia c1){
         double perimetro = Math.PI * c1.getRadio()*2;
         return perimetro;
     }
-    
+    /**
+     * muestra por consola
+     * @param area
+     * @param perimetro 
+     */
     public void mostrarInfo(double area, double perimetro){
         System.out.println("el valor del area para esta circunferencia es "+area+" y su perimetro es "+perimetro);
     }
