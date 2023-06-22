@@ -33,8 +33,48 @@ public class PooEjercicio7 {
        boolean p3E = ps.esMayorDeEdad(p3);
        boolean p4E = ps.esMayorDeEdad(p4);
        
+       int [] IMC = new int [4];
        
+       IMC[0]=p1IMC;
+       IMC[1]=p2IMC;
+       IMC[2]=p3IMC;
+       IMC[3]=p4IMC;
+       
+       double bajo = 0;
+       double ideal = 0;
+       double sobre = 0;
+       
+       for (int i = 0; i < IMC.length; i++) {
+           switch (IMC[i]) {
+               case -1:
+                   bajo++ ;
+                   break;
+               case 0:
+                   ideal++;
+                   break;            
+               default:
+                   sobre++;
+                   break;
+           }
+       }
+       
+       double mayores = 0;
+       boolean [] mayor = new boolean [4];
+       mayor[0]= p1E;
+       mayor[1]= p2E;
+       mayor[2]= p3E;
+       mayor[3]= p4E;
+       
+        for (int i = 0; i < mayor.length; i++) {
+            if (mayor[i]){
+                mayores++;
+            }
+            
+        }
         
+        System.out.println("el porcentaje de gente con sobrepeso es "+sobre/4*100+"% el porcentaje de gente con peso ideal "+ideal/4*100
+        +"% el porcentaje de gente con bajo peso "+bajo/4*100+"%");
+       
     }
     
 }

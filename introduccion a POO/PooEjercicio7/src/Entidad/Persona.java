@@ -12,13 +12,13 @@ public class Persona {
     private String nombre;
     private int edad;
     private char sexo;
-    private int peso;
+    private double peso;
     private double altura;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int edad, char sexo, int peso, double altura) {
+    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -50,11 +50,11 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
