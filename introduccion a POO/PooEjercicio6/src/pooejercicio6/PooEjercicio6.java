@@ -4,6 +4,9 @@
  */
 package pooejercicio6;
 
+import Entidad.Cafetera;
+import Servicio.CafeteraServicio;
+
 /**
  *
  * @author franc
@@ -14,7 +17,13 @@ public class PooEjercicio6 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CafeteraServicio c1 = new CafeteraServicio();
+        Cafetera ca = c1.crearCafetera();
+        c1.llenarCafetera(ca);
+        c1.servirTaza(ca);
+        c1.servirTaza(ca);
+        c1.agregarCafe(ca);
+        c1.vaciaCafetera(ca);
     }
     
 }
