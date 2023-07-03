@@ -4,6 +4,9 @@
  */
 package javaapplication3;
 
+import Entidad.Cadena;
+import Servicio.ServicioCadena;
+
 /**
  *
  * @author ASUS
@@ -14,7 +17,15 @@ public class JavaApplication3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ServicioCadena ca = new ServicioCadena();
+        Cadena c1 = ca.crearCadena();
+        ca.contarVocales(c1);
+        ca.invertirfrase(c1);
+        ca.invertirfrase(c1);
+        ca.vecesRepetido(c1);
+        ca.compararLongitud(c1);
+        ca.reemplazar(c1);
+        ca.unirFrase(c1);
     }
     
 }
