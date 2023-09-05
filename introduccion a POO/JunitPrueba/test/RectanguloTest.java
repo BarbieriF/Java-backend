@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import servicio.RectanguloServicio;
 
 /**
  *
@@ -19,6 +20,8 @@ public class RectanguloTest {
     
     public RectanguloTest() {
     }
+    
+    RectanguloServicio rs;
     
     @BeforeClass
     public static void setUpClass() {
@@ -30,6 +33,7 @@ public class RectanguloTest {
     
     @Before
     public void setUp() {
+        rs = new RectanguloServicio();
     }
     
     @After
@@ -39,5 +43,27 @@ public class RectanguloTest {
     @Test
     public void deberiaInicializarConColor(){
         assertNotNull(new Rectangulo(10,10).getColor());        
+    }
+    
+    @Test     
+    public void deberiaCalcularArea(){
+        assertEquals(100, rs.calcularArea(new Rectangulo(10,10)),0);
+        assertEquals(20, rs.calcularArea(new Rectangulo(10,2)),0);
+        assertEquals(1, rs.calcularArea(new Rectangulo(1,1)),0);
+    }
+    
+    @Test
+    public void deberiaCalcularPerimetro(){
+        assertEquals(40, rs.calcularPerimetro(new Rectangulo(10,10)),0);
+        assertEquals(50, rs.calcularPerimetro(new Rectangulo(10,15)),0);
+        assertEquals(4, rs.calcularPerimetro(new Rectangulo(1,1)),0);
+    }
+    
+    @Test
+    public void deberiaActivarDesactivar(){
+        Rectangulo r = new Rectangulo(10,10);
+        assertTrue(r.isActivo());
+        r.setActivo(false);
+        assertFalse(r.isActivo());
     }
 }
