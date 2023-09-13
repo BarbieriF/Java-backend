@@ -4,6 +4,8 @@
  */
 package Entidad;
 
+import java.util.Scanner;
+
 
 
 /**
@@ -12,7 +14,7 @@ package Entidad;
  */
 public class Velero extends Barco{
     private int numMastil;
-    private String tipoBarco = "Velero";
+    
 
     public Velero(int numMastil, String matricula, int eslora, int anioFabricacion) {
         super(matricula, eslora, anioFabricacion);
@@ -25,16 +27,22 @@ public class Velero extends Barco{
 
     public void setNumMastil(int numMastil) {
         this.numMastil = numMastil;
+    }  
+    
+    public static Velero crearVelero(){
+        Scanner leer = new Scanner(System.in); 
+        Barco b = Barco.crearBarco();
+        System.out.println("ingrese numero de mastiles");
+        int mastil = leer.nextInt();
+        return new Velero(mastil,b.getMatricula(),b.getEslora(),b.getAnioFabricacion());
     }
 
     @Override
-    public String getTipoBarco() {
-        return tipoBarco;
-    }
-
-    public void setTipoBarco(String tipoBarco) {
-        this.tipoBarco = tipoBarco;
-    }
+    public double costoAlquilerDiario() {
+        Double valor = super.costoAlquilerDiario();
+        valor += numMastil;
+        return valor;      
+    } 
     
     
 

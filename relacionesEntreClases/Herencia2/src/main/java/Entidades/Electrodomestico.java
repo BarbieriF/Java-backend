@@ -126,7 +126,7 @@ public class Electrodomestico {
 
     @Override
     public String toString() {
-        return "Electrodomestico{" + "precio=" + precio + ", color=" + color + ", consumoEnergetico=" + consumoEnergetico + '}';
+        return "precio=" + precio + ", color=" + color + ", consumoEnergetico=" + consumoEnergetico + '}';
     }
     
     

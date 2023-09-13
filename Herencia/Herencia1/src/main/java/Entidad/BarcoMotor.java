@@ -4,17 +4,19 @@
  */
 package Entidad;
 
+import java.util.Scanner;
+
 
 
 /**
  *
  * @author franc
  */
-public class BarcoAMotor extends Barco {
+public class BarcoMotor extends Barco {
     protected int potencia;
-    private String tipoBarco = "BarcoMotor";
+    
 
-    public BarcoAMotor(int potencia, String matricula, int eslora, int anioFabricacion) {
+    public BarcoMotor(int potencia, String matricula, int eslora, int anioFabricacion) {
         super(matricula, eslora, anioFabricacion);
         this.potencia = potencia;
     }
@@ -26,11 +28,22 @@ public class BarcoAMotor extends Barco {
     public void setPotencia(int potencia) {
         this.potencia = potencia;
     }
+    
+    public static BarcoMotor crearBarcoMotor(){
+        Scanner leer = new Scanner(System.in);
+        Barco b = Barco.crearBarco();
+        System.out.println("ingrese la potencia del barco");
+        int potenciaCV = leer.nextInt();
+        leer.nextLine();
+        return new BarcoMotor(potenciaCV,b.getMatricula(),b.getEslora(),b.getAnioFabricacion());
+    }
 
     @Override
-    public String getTipoBarco() {
-        return tipoBarco;
-    }  
+    public double costoAlquilerDiario() {
+        double costo = super.costoAlquilerDiario();
+        costo += potencia;
+        return costo;
+    }
     
     
 

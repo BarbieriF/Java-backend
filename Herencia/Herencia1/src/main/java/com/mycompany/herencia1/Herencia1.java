@@ -4,6 +4,8 @@
 
 package com.mycompany.herencia1;
 
+import Entidad.Alquiler;
+import Entidad.Velero;
 import Servicio.ServicioAlquiler;
 
 /**
@@ -14,6 +16,8 @@ public class Herencia1 {
 
     public static void main(String[] args) {
         ServicioAlquiler sa = new ServicioAlquiler();
-        System.out.println(sa.crearAlquiler());
+        Alquiler a = sa.seleccionarBarcoAlquiler();
+        System.out.println(a.toString());
+        System.out.println(a.costoFinalAlquiler());
     }
 }

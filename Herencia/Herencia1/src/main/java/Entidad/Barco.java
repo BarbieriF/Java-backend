@@ -4,6 +4,8 @@
  */
 package Entidad;
 
+import java.util.Scanner;
+
 
 
 /**
@@ -14,7 +16,7 @@ public class Barco {
     protected String matricula;
     protected int eslora;
     protected int anioFabricacion;
-    protected String tipoBarco;
+    
 
     public Barco(String matricula, int eslora, int anioFabricacion) {
         this.matricula = matricula;
@@ -36,11 +38,7 @@ public class Barco {
 
     public void setEslora(int eslora) {
         this.eslora = eslora;
-    }
-
-    public String getTipoBarco() {
-        return tipoBarco;
-    }
+    }   
 
     public int getAnioFabricacion() {
         return anioFabricacion;
@@ -50,6 +48,23 @@ public class Barco {
         this.anioFabricacion = anioFabricacion;
     }
     
+    public static Barco crearBarco(){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("ingrese matricula");
+        String MatriculaPorTeclado = leer.nextLine();
+        System.out.println("ingrese la eslora del barco");
+        int esloraPorTeclado = leer.nextInt();
+        leer.nextLine();
+        System.out.println("ingrese año de fabricacion");
+        int anioFabricacionTeclado = leer.nextInt();
+        leer.nextLine();
+        return new Barco(MatriculaPorTeclado,esloraPorTeclado,anioFabricacionTeclado);               
+    }
+    
+    public double costoAlquilerDiario(){
+        double costoDiario = eslora *10;
+        return costoDiario;
+    }
     
 
     @Override

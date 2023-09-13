@@ -59,7 +59,7 @@ public class Televisor extends Electrodomestico {
 
     @Override
     public String toString() {
-        return super.toString()+"Televisor{" + "resolucion=" + resolucion + ", sintonizador=" + sintonizador + '}';
+        return "Televisor{"+ super.toString() + "resolucion=" + resolucion + ", sintonizador=" + sintonizador + '}';
     }
     
     

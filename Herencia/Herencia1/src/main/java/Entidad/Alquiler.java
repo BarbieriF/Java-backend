@@ -5,6 +5,8 @@
 package Entidad;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
 
 /**
  *
@@ -73,6 +75,34 @@ public class Alquiler {
 
     public void setBarco(Barco barco) {
         this.barco = barco;
+    }
+    public static Alquiler crearAlquiler(Barco barco){
+        Scanner leer = new Scanner(System.in);
+        System.out.println("ingrese nombre");
+        String nombre = leer.nextLine();
+        System.out.println("ingrese documento");
+        int documento = leer.nextInt();
+        leer.nextLine();
+        System.out.println("fecha de alquiler yyyy/mm/dd");
+        int anio = leer.nextInt();
+        int mes = leer.nextInt();
+        int dia = leer.nextInt();
+        LocalDate fechaInicio = LocalDate.of(anio, mes, dia);
+        System.out.println("ingrese fecha de devolucion yyyy/mm/dd");
+        anio = leer.nextInt();
+        mes = leer.nextInt();
+        dia = leer.nextInt();
+        LocalDate fechaDevolucion = LocalDate.of(anio, mes, dia);
+        System.out.println("ingrese num de puerto");
+        int posicionAmarre = leer.nextInt();
+        leer.nextLine();        
+        
+        return new Alquiler(nombre, documento, fechaInicio, fechaDevolucion, posicionAmarre, barco);        
+    }
+    
+    
+    public double costoFinalAlquiler(){
+        return barco.costoAlquilerDiario()* ChronoUnit.DAYS.between(fechaInicio, fechaDevolucion);
     }
 
     @Override

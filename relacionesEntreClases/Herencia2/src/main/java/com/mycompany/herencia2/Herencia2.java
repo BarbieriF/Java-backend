@@ -5,6 +5,7 @@
 package com.mycompany.herencia2;
 
 import Entidades.Lavadora;
+import Entidades.Televisor;
 
 /**
  *
@@ -16,6 +17,10 @@ public class Herencia2 {
         Lavadora l = new Lavadora();
         l.crearLavadora();
         l.precioFinal();
-        System.out.print(l.toString());
+        Televisor t = new Televisor();
+        t.crearTelevisor();
+        t.precioFinal();
+        System.out.println(l.toString());
+        System.out.println(t.toString());
     }
 }

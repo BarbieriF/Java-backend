@@ -6,77 +6,48 @@ package Servicio;
 
 import Entidad.Alquiler;
 import Entidad.Barco;
-import Entidad.BarcoAMotor;
+import Entidad.BarcoMotor;
 import Entidad.Velero;
 import Entidad.Yate;
-import java.time.LocalDate;
 import java.util.Scanner;
-import java.time.temporal.ChronoUnit;
 
 /**
  *
  * @author franc
  */
-public class ServicioAlquiler {
-    Alquiler alquiler;
-    Scanner leer = new Scanner(System.in);
-    
-    public Alquiler crearAlquiler(){
-        System.out.println("ingrese nombre");
-        String nombre = leer.nextLine();
-        System.out.println("ingrese documento");
-        int documento = leer.nextInt();
+public class ServicioAlquiler {   
+   Scanner leer = new Scanner(System.in);
+   
+    public Alquiler seleccionarBarcoAlquiler(){
+        System.out.println("-----------------------------------------");        
+        System.out.println("--------- seleccione un barco -----------");
+        System.out.println("1* barco simple");
+        System.out.println("2* barco motor");
+        System.out.println("3* velero");
+        System.out.println("4* Yate");
+        int op = leer.nextInt();
         leer.nextLine();
-        System.out.println("fecha de alquiler yyyy/mm/dd");
-        int anio = leer.nextInt();
-        int mes = leer.nextInt();
-        int dia = leer.nextInt();
-        LocalDate fechaInicio = LocalDate.of(anio, mes, dia);
-        System.out.println("ingrese fecha de devolucion yyyy/mm/dd");
-        anio = leer.nextInt();
-        mes = leer.nextInt();
-        dia = leer.nextInt();
-        LocalDate fechaDevolucion = LocalDate.of(anio, mes, dia);
-        System.out.println("ingrese num de puerto");
-        int posicionAmarre = leer.nextInt();
-        leer.nextLine();
-        System.out.println("ingrese el tipo de barco Velero, BarcoMotor, Yate");        
-        alquiler = new Alquiler(nombre, documento, fechaInicio, fechaDevolucion, posicionAmarre, crearBarco(leer.nextLine()));
-        return alquiler;
-    }
-    
-    public Barco crearBarco(String tipoBarco){
-        Barco barco = new Barco(tipoBarco, 0, 0);
-        switch (tipoBarco) {
-            case "Velero":
-                System.out.println("ingrese numero de mastils");
-                int n = leer.nextInt();
-                barco = new Velero(n, tipoBarco, 10+(n*3), 2000);
-                break;
-            case "BarcoMotor":
-                barco = new BarcoAMotor(50, tipoBarco, 30, 2010);
-                break;
-            case "Yate":
-                System.out.println("ingrese numero de camarotes");
-                n = leer.nextInt();
-                barco = new Yate(n, n*50, tipoBarco, 20+(n*5), 2020);
-                break;            
+        switch (op) {
+            case 1:
+                Barco b = Barco.crearBarco();
+                Alquiler l = Alquiler.crearAlquiler(b);
+                return l;
+            case 2:
+                BarcoMotor bm = BarcoMotor.crearBarcoMotor();
+                Alquiler l2 = Alquiler.crearAlquiler(bm);
+                return l2;
+            case 3:
+                Velero v = Velero.crearVelero();
+                Alquiler l3 = Alquiler.crearAlquiler(v);
+                return l3;
+            case 4:
+                Yate y = Yate.crearYate();
+                Alquiler l4 = Alquiler.crearAlquiler(y);
+                return l4; 
+            default:
+                System.out.println("opcion invalida");
+                return null;
         }
-        return barco;
-    }
-    
-    public void costoAlquiler(){
-        double costo;
-        switch (alquiler.getBarco().getTipoBarco()) {
-            case "Velero":
-                costo = (double)ChronoUnit.DAYS.between(alquiler.getFechaDevolucion(), alquiler.getFechaInicio()) + ((Velero) alquiler.getBarco().ge) ;
-            case "BarcoMotor":
-                costo = (double)ChronoUnit.DAYS.between(alquiler.getFechaDevolucion(), alquiler.getFechaInicio());
-            case "Yate":
-                costo = (double)ChronoUnit.DAYS.between(alquiler.getFechaDevolucion(), alquiler.getFechaInicio());
-        }
-        
-        
     }
     
 }
