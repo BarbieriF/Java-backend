@@ -1,4 +1,4 @@
-package com.storeapp.web.Entities;
+package com.storeapp.web.Entity;
 
 
 
