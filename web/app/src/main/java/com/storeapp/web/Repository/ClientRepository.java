@@ -1,14 +1,12 @@
 package com.storeapp.web.Repository;
 
-import java.util.Optional;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.storeapp.web.Entity.Client;
 
 
-public interface ClientRepository extends CrudRepository<Client,Long>{ 
-
-    Optional<Client> findById(Long id);
+public interface ClientRepository extends JpaRepository<Client,Long>{ 
+    
      
 }
